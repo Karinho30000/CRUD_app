@@ -1,17 +1,26 @@
-# Start from an OpenJDK image
-FROM eclipse-temurin:17-jdk
+# Use Maven + JDK image
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy your Maven wrapper and project files
+# Copy your entire project into the container
 COPY . .
 
-# Package the application
-RUN mvn clean install
+# Build the application
+RUN mvn clean package -DskipTests
 
-# Expose port 8080
+# Use a lightweight image for the final container
+FROM eclipse-temurin:17-jdk
+
+# Set working directory
+WORKDIR /app
+
+# Copy the built JAR from the previous image
+COPY --from=build /app/target/*.jar app.jar
+
+# Expose the port your app runs on
 EXPOSE 8080
 
-# Run the Spring Boot app
-CMD ["java", "-jar", "target/hds-backend-0.0.1-SNAPSHOT.jar"]
+# Start the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
