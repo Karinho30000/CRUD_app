@@ -1,0 +1,92 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.footer{
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+select.form-control, select.form-select {
+  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  background-image: none !important;
+}
+
+.placeholder-center{
+    text-align-last: center;
+    text-align: center;
+    color: #6c757d;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem; /* Optional space for the footer */
+}
+
+.text-hover {
+  color: deepskyblue;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.text-hover:hover {
+  background-color: rgba(0, 191, 255, 0.1); /* light blue background on hover */
+}
+
+.text-hover:active {
+  background-color: rgba(0, 191, 255, 0.2); /* slightly darker on click */
+}
+
+.btn-deepsky {
+  color: deepskyblue;
+  border: 1px solid deepskyblue;
+  padding: 6px 16px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.btn-deepsky:hover {
+  background-color: deepskyblue;
+  color: white;
+}
+
+.btn-deepsky:active {
+  background-color: #009ac7; /* slightly darker blue */
+  border-color: #009ac7;
+}
+
+.btn-add {
+  color: white;
+  border: 1px solid deepskyblue;
+  padding: 6px 16px;
+  background-color: deepskyblue;
+  transition: all 0.2s ease;
+  border-radius: 1200px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: lightskyblue;
+  color: black;
+}
+
+.btn-add:active {
+  background-color: dodgerblue; /* slightly darker blue */
+  border-color: darkblue;
+}
