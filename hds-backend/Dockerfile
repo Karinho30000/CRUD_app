@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Package the application
-RUN ./mvnw clean install
+RUN mvn clean install
 
 # Expose port 8080
 EXPOSE 8080
