@@ -30,7 +30,7 @@ const ListStudentComponent = () => {
     }
 
     function getStudentsByLocation(locationName){
-        fetch(`http://localhost:8080/api/locations/${locationName}/students`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${locationName}/students`)
         .then((response) => response.json())
         .then((data) => {
             setStudents(data);
@@ -40,7 +40,7 @@ const ListStudentComponent = () => {
     }
 
     function getStudentsByGroup(groupName, locationName){
-        fetch(`http://localhost:8080/api/locations/${locationName}/groups/${groupName}/students`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${locationName}/groups/${groupName}/students`)
             .then((response) => response.json())
             .then((data) => {
                 setStudents(data);
