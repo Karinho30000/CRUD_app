@@ -6,14 +6,14 @@ export default function TeacherList() {
   const [students, setStudents] = useState([]);
     
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/students`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/students`, {credentials:'include'})
         .then((res) => res.json())
         .then(setStudents);
     }, []);
 
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/teachers`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/teachers`, {credentials:'include'})
       .then(res => res.json())
       .then(data => setTeachers(data));
   }, []);
