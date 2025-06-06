@@ -56,7 +56,7 @@ const StudentComponent = () => {
 
     useEffect(() => {
       if(group){
-        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/teachers/group/${group}`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/teachers/group/${group}`, {credentials:'include'})
         .then((response) => response.json())
         .then((data) => setAvailableTeachers(data))
         .catch(error => console.error(error));
@@ -65,7 +65,7 @@ const StudentComponent = () => {
 
     useEffect(() => {
       if(location){
-        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${location}/groups`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${location}/groups`, {credentials:'include'})
         .then((response) => response.json())
         .then((data) => setAvailableGroups(data))
         .catch(error => console.error(error));
@@ -73,7 +73,7 @@ const StudentComponent = () => {
     }, [location])
 
     useEffect(() => {
-      fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations`)
+      fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations`, {credentials:'include'})
       .then((response) => response.json())
       .then((data) => setAvailableLocations(data))
       .catch(error => console.error(error));
