@@ -10,7 +10,7 @@ const GroupChoice = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/students`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/students`, {credentials:'include'})
     .then((res) => res.json())
     .then(setStudents);
   }, []);
@@ -32,7 +32,7 @@ const GroupChoice = () => {
   }
 
   function getGroupsByLocation(locationName){
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${locationName}/groups`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${locationName}/groups`, {credentials:'include'})
     .then((response) => response.json())
     .then((data) => {
         setGroups(data);
