@@ -5,9 +5,16 @@ html, body {
 }
 
 .footer{
-    background-color: black;
-    text-align: center;
-    color: white;
+  display: flex;
+  justify-content: space-between; /* Push items to left and right */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #d5e6ed;
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 select.form-control, select.form-select {
@@ -89,4 +96,19 @@ select.form-control, select.form-select {
 .btn-add:active {
   background-color: dodgerblue; /* slightly darker blue */
   border-color: darkblue;
+}
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9; /* optional */
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
