@@ -13,9 +13,8 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOriginPatterns(
-                                "https://helendoron-students.netlify.app",
-                                "http://localhost:3000"
+                        .allowedOrigins(
+                                "https://helendoron-students.netlify.app"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
