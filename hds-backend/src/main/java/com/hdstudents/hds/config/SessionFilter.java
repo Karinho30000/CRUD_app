@@ -38,7 +38,7 @@ public class SessionFilter extends OncePerRequestFilter {
         logger.info("Authenticated status: " + authenticated);
         if(authenticated != null && authenticated){
             String sessionId = request.getSession().getId();
-            response.setHeader("Set-Cookie", "JSESSIONID=" + sessionId + "; Path=/; HttpOnly; SameSite=Lax");
+            response.setHeader("Set-Cookie", "JSESSIONID=" + sessionId + "; Path=/; HttpOnly; SameSite=None; Secure");
             filterChain.doFilter(request, response);
         } else{
             logger.warning("Unauthorized access to " + path);
