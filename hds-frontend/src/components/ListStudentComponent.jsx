@@ -30,7 +30,7 @@ const ListStudentComponent = () => {
     }
 
     function getStudentsByLocation(locationName){
-        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${locationName}/students`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${locationName}/students`, {credentials:'include'})
         .then((response) => response.json())
         .then((data) => {
             setStudents(data);
@@ -40,7 +40,7 @@ const ListStudentComponent = () => {
     }
 
     function getStudentsByGroup(groupName, locationName){
-        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${locationName}/groups/${groupName}/students`)
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/locations/${locationName}/groups/${groupName}/students`, {credentials:'include'})
             .then((response) => response.json())
             .then((data) => {
                 setStudents(data);
@@ -79,7 +79,13 @@ const ListStudentComponent = () => {
         console.log(id);
 
         deleteStudent(id).then(() => {
-            window.location.href = `/locations/${name_location}/groups/${name_group}/students`
+           if(name_group){
+                getStudentsByGroup(name_group, name_location);
+            } else if(name_location){
+                getStudentsByLocation(name_location);
+            } else{
+                getAllStudents();
+            }
         }).catch(error => {
             console.error(error);
         })
