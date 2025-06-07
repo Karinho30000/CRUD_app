@@ -14,7 +14,7 @@ import React, { useState, useContext } from 'react';
        const handleSubmit = async (e) => {
            e.preventDefault();
            try {
-               const response = await axios.post('http://localhost:8080/api/auth/login', { username, password }, { withCredentials: true });
+               const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, { username, password }, { withCredentials: true });
                if(response.status === 200){
                 setIsAuthenticated(true);
                 navigator('/locations');
