@@ -12,9 +12,6 @@ html, body {
   background-color: #d5e6ed;
   border-top: 1px solid #ccc;
   font-size: 14px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
 
 select.form-control, select.form-select {
