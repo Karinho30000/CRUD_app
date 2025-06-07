@@ -6,7 +6,7 @@ html, body {
 
 .footer{
   display: flex;
-  justify-content: space-between; /* Push items to left and right */
+  justify-content: center; /* Push items to left and right */
   align-items: center;
   padding: 10px 20px;
   background-color: #d5e6ed;
