@@ -8,22 +8,14 @@ const LocationChoice = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    console.log("LocationChoice: Fetching locations...");
     getAllLocations();
   })
 
   function getAllLocations(){
     listLocations().then((response) => {
-      console.log("Locations fetched: ", response.data);
       setLocations(response.data);
     }).catch(error => {
         console.error(error);
-        if(error.response && error.response.status === 401){
-          console.log("Unauth, to login...");
-          navigator('/login');
-        } else{
-          setError('Failed to load locations');
-        }
     });
   }
 
