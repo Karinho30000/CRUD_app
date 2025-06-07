@@ -6,7 +6,7 @@ html, body {
 
 .footer{
   display: flex;
-  justify-content: center; /* Push items to left and right */
+  justify-content: center;
   align-items: center;
   padding: 10px 20px;
   background-color: #d5e6ed;
@@ -36,7 +36,7 @@ select.form-control, select.form-select {
 .main-content {
   flex: 1;
   overflow-y: auto;
-  padding-bottom: 1rem; /* Optional space for the footer */
+  padding-bottom: 1rem;
 }
 
 .text-hover {
@@ -48,11 +48,11 @@ select.form-control, select.form-select {
 }
 
 .text-hover:hover {
-  background-color: rgba(0, 191, 255, 0.1); /* light blue background on hover */
+  background-color: rgba(0, 191, 255, 0.1);
 }
 
 .text-hover:active {
-  background-color: rgba(0, 191, 255, 0.2); /* slightly darker on click */
+  background-color: rgba(0, 191, 255, 0.2);
 }
 
 .btn-deepsky {
@@ -71,7 +71,7 @@ select.form-control, select.form-select {
 }
 
 .btn-deepsky:active {
-  background-color: #009ac7; /* slightly darker blue */
+  background-color: #009ac7;
   border-color: #009ac7;
 }
 
@@ -91,7 +91,7 @@ select.form-control, select.form-select {
 }
 
 .btn-add:active {
-  background-color: dodgerblue; /* slightly darker blue */
+  background-color: dodgerblue;
   border-color: darkblue;
 }
 
@@ -100,7 +100,7 @@ select.form-control, select.form-select {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f9f9f9; /* optional */
+  background-color: #f9f9f9;
 }
 
 .login-form {
