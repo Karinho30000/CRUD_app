@@ -6,7 +6,6 @@ const FooterComponent = () => {
     <div>
         <footer className='footer'>
             <span>© 2025 HelenDoronOsijek</span>
-            <LogoutButton/>
         </footer>
     </div>
   )
