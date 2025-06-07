@@ -9,7 +9,7 @@ import axios from 'axios';
 
        const handleLogout = async () => {
            try{
-            await axios.post('http://localhost:8080/api/auth/logout', {}, { withCredentials: true});
+            await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/logout`, {}, { withCredentials: true});
             setIsAuthenticated(false);
             navigator('/login');
            } catch (error){
