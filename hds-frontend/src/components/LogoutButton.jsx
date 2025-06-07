@@ -18,7 +18,7 @@ import axios from 'axios';
        };
 
        return (
-           <button className="btn btn-secondary" onClick={handleLogout}>
+           <button className="btn btn-outline-light" onClick={handleLogout}>
                Logout
            </button>
        );
