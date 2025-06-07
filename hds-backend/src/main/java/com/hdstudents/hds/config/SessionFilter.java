@@ -16,7 +16,10 @@ public class SessionFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException{
-        
+        response.setHeader("Access-Control-Allow-Origin", "https://helendoron-students.netlify.app");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization");
 
         // 🛑 Allow preflight requests through immediately
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
@@ -35,7 +38,7 @@ public class SessionFilter extends OncePerRequestFilter {
         logger.info("Authenticated status: " + authenticated);
         if(authenticated != null && authenticated){
             String sessionId = request.getSession().getId();
-            response.setHeader("Set-Cookie", "JSESSIONID=" + sessionId + "; Path=/; HttpOnly; SameSite=None; Secure");
+            response.setHeader("Set-Cookie", "JSESSIONID=" + sessionId + "; Path=/; HttpOnly; SameSite=Lax");
             filterChain.doFilter(request, response);
         } else{
             logger.warning("Unauthorized access to " + path);
