@@ -45,7 +45,7 @@ import React, { useState, useContext } from 'react';
                     required
                 />
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 position-relative">
                 <label className="form-label">Password</label>
                 <input
                     type={showPassword ? 'text' : 'password'}
@@ -59,7 +59,7 @@ import React, { useState, useContext } from 'react';
                             style={{
                                 position: 'absolute',
                                 right: '10px',
-                                top: '38px',
+                                top: '50%',
                                 cursor: 'pointer',
                                 color: '#666'
                             }}
