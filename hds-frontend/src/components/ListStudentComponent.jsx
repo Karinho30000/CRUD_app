@@ -60,9 +60,9 @@ const ListStudentComponent = () => {
         const valA = a[key]?.toLowerCase?.() || '';
         const valB = b[key]?.toLowerCase?.() || '';
 
-        if (valA < valB) return direction === 'asc' ? -1 : 1;
-        if (valA > valB) return direction === 'asc' ? 1 : -1;
-        return 0;
+        return direction === 'asc'
+            ? valA.localeCompare(valB, 'hr')
+            : valB.localeCompare(valA, 'hr');
     });
 
     setSortConfig({ key, direction });
