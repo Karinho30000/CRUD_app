@@ -21,7 +21,7 @@ const HeaderComponent = () => {
             <img
               src="/hd_logo_2.png"
               alt="Logo"
-              style={{ height: '60px', marginLeft: '30px' }}
+              style={{ height: '50px', marginLeft: '30px' }}
             />
           </div>
         </div>
