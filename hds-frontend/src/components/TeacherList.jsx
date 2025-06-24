@@ -36,14 +36,14 @@ export default function TeacherList() {
 
           <p className="mt-2 font-medium">Groups:</p>
           <ul className="list-disc pl-5">
-            {teacher.groups.map((group) => {
+            {[...new Set(teacher.groups.map(g => g.name))].map((groupName) =>  {
               const groupStudentCount = students.filter(
                 (student) => 
-                  student.teacher === teacher.name && student.group === group.name
+                  student.teacher === teacher.name && student.group === groupName
               ).length;
             return (
-              <li key={group.id}>
-                {group.name} ({groupStudentCount} students)
+              <li key={groupName}>
+                {groupName} ({groupStudentCount} students)
               </li>
             )})}
           </ul>
