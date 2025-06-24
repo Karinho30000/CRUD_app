@@ -19,9 +19,8 @@ const HeaderComponent = () => {
           <div className="d-flex align-items-center">
             <LogoutButton />
             <img
-              src="/hd_logo.png"
+              src="/hd_logo_2.png"
               alt="Logo"
-              className="border border-dark-subtle ms-3" 
               style={{ height: '40px' }}
             />
           </div>
