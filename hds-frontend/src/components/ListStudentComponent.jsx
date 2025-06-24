@@ -7,6 +7,7 @@ const ListStudentComponent = () => {
 
     const [students, setStudents] =  useState([])
     const { name_location, name_group } = useParams();
+    const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
 
     const navigator = useNavigate();
 
@@ -47,6 +48,25 @@ const ListStudentComponent = () => {
             }).catch((error) => {
                 console.error(error);
             })
+    }
+
+    function sortBy(key) {
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+        direction = 'desc';
+    }
+
+    const sortedStudents = [...students].sort((a, b) => {
+        const valA = a[key]?.toLowerCase?.() || '';
+        const valB = b[key]?.toLowerCase?.() || '';
+
+        if (valA < valB) return direction === 'asc' ? -1 : 1;
+        if (valA > valB) return direction === 'asc' ? 1 : -1;
+        return 0;
+    });
+
+    setSortConfig({ key, direction });
+    setStudents(sortedStudents);
     }
 
 
@@ -104,8 +124,12 @@ const ListStudentComponent = () => {
         <table className='table table-striped table-bordered'>
             <thead>
                 <tr>
-                    <th>Student First Name</th>
-                    <th>Student Last Name</th>
+                    <th onClick={() => sortBy('firstName')} style={{ cursor: 'pointer' }}>
+                        Student First Name {sortConfig.key === 'firstName' ? (sortConfig.direction === 'asc' ? '▲' : '▼') : ''}
+                    </th>
+                    <th onClick={() => sortBy('lastName')} style={{ cursor: 'pointer' }}>
+                        Student Last Name {sortConfig.key === 'lastName' ? (sortConfig.direction === 'asc' ? '▲' : '▼') : ''}
+                    </th>
                     <th>Group</th>
                     <th>Teacher</th>
                     <th>Location</th>
