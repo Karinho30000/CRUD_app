@@ -3,11 +3,13 @@ import React, { useState, useContext } from 'react';
    import { useNavigate } from 'react-router-dom';
    import { AuthContext } from '../AuthContext';
    import 'bootstrap/dist/css/bootstrap.min.css';
+   import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
    const Login = () => {
        const [username, setUsername] = useState('');
        const [password, setPassword] = useState('');
        const [error, setError] = useState('');
+       const [showPassword, setShowPassword] = useState(false);
        const { setIsAuthenticated } = useContext(AuthContext);
        const navigator = useNavigate();
 
@@ -23,6 +25,10 @@ import React, { useState, useContext } from 'react';
                setError('Invalid username or password');
            }
        };
+
+      const togglePassword = () => {
+        setShowPassword(prev => !prev);
+      };
 
        return (
         <div className="container mt-5 d-flex justify-content-center">
@@ -42,12 +48,24 @@ import React, { useState, useContext } from 'react';
                 <div className="mb-3">
                 <label className="form-label">Password</label>
                 <input
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     className="form-control"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
+                <span
+                            onClick={togglePassword}
+                            style={{
+                                position: 'absolute',
+                                right: '10px',
+                                top: '38px',
+                                cursor: 'pointer',
+                                color: '#666'
+                            }}
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
                 </div>
                 <button type="submit" className="btn btn-primary w-100">Login</button>
                 {error && <p className="text-danger mt-3 text-center">{error}</p>}
